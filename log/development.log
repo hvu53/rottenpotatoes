@@ -3146,3 +3146,78 @@ Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-01 10:06:29 -0700
 Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-08-01 10:13:31 -0700
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Rendered movies/index.html.haml within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.include?):
+    6:   Include:
+    7:   - @all_ratings.each do |rating|
+    8:     = rating
+    9:     = check_box_tag "ratings[#{rating}]", 1, @ratings.include?(rating), :id => "ratings_#{rating}"
+    10:   = submit_tag 'Refresh', {:id => 'ratings_submit'}
+    11: 
+    12: %table#movies
+  app/views/movies/index.html.haml:9:in `block (2 levels) in _app_views_movies_index_html_haml__833570692__642248828'
+  app/views/movies/index.html.haml:7:in `each'
+  app/views/movies/index.html.haml:7:in `block in _app_views_movies_index_html_haml__833570692__642248828'
+  app/views/movies/index.html.haml:4:in `_app_views_movies_index_html_haml__833570692__642248828'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.6ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-08-01 10:14:38 -0700
+  Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+Rendered movies/index.html.haml within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.include?):
+    6:   Include:
+    7:   - @all_ratings.each do |rating|
+    8:     = rating
+    9:     = check_box_tag "ratings[#{rating}]", 1, @ratings.include?(rating), :id => "ratings_#{rating}"
+    10:   = submit_tag 'Refresh', {:id => 'ratings_submit'}
+    11: 
+    12: %table#movies
+  app/views/movies/index.html.haml:9:in `block (2 levels) in _app_views_movies_index_html_haml__833570692__639158478'
+  app/views/movies/index.html.haml:7:in `each'
+  app/views/movies/index.html.haml:7:in `block in _app_views_movies_index_html_haml__833570692__639158478'
+  app/views/movies/index.html.haml:4:in `_app_views_movies_index_html_haml__833570692__639158478'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.1ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-08-01 10:18:47 -0700
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Rendered movies/index.html.haml within layouts/application (14.5ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-01 10:18:47 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-01 10:18:47 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-01 10:18:47 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-01 10:18:47 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
