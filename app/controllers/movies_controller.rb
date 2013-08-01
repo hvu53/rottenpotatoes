@@ -7,7 +7,37 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.order(params[:sort])
+    # @movies = Movie.order(params[:sort])
+    if params[:commit] == 'Refresh'
+      session[:ratings] = params[:ratings]
+    elsif session[:ratings] != params[:ratings]
+      redirect = true
+      params[:ratings] = session[:ratings]
+    end
+
+    if params[:sort]
+      session[:sort] = params[:sort]
+    elsif session[:sort]
+      redirect = true
+      params[:sort] = session[:sort]
+    end
+
+    @ratings = session[:ratings]
+    @sort = session[:sort]
+
+    if redirect
+      redirect_to movies_path({:sort => @sort, :ratings => @ratings})
+    elsif columns = {'title' => 'title', 'release_date' => 'release_date'}
+      if columns.has_key?(@sort)
+        query = Movie.order(columns[@sort])
+      else
+        @sort = nil
+        query = Movie
+      end
+
+      @movies = @ratings.nil? ? query.all : query.find_all_by_rating(@ratings.map { |r| r[0]} )
+      @all_ratings = Movie.ratings
+    end
   end
 
   def new
